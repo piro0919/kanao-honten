@@ -48,7 +48,10 @@ function Services({ serviceItems }: ServicesProps): JSX.Element {
 
   return (
     <>
-      <Seo title="業務内容" />
+      <Seo
+        description="切り身に対応した病院給食、飲食店への卸、一般消費者様への販売、全国への鮮魚発送まで。有限会社 金尾本店の業務内容をご紹介します。"
+        title="業務内容"
+      />
       <BusinessContent articles={articles} />
     </>
   );

@@ -61,7 +61,10 @@ function SetouchiFish({ setouchiFishItems }: SetouchiFishProps): JSX.Element {
 
   return (
     <>
-      <Seo title="瀬戸内の魚" />
+      <Seo
+        description="瀬戸内で獲れる魚をご紹介します。広島県福山市の鮮魚卸、有限会社 金尾本店。"
+        title="瀬戸内の魚"
+      />
       <NoSSR>
         <SetouchiFishTop fishes={fishes} />
       </NoSSR>

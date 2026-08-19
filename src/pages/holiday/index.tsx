@@ -53,7 +53,10 @@ function Holiday({ calendarItems }: HolidayProps): JSX.Element {
 
   return (
     <>
-      <Seo title="休業日" />
+      <Seo
+        description="有限会社 金尾本店の休業日をカレンダーでご案内します。通常は水曜・日曜・祝日が休業日です。"
+        title="休業日"
+      />
       <HolidayTop holidays={holidays} />
     </>
   );

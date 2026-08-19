@@ -25,7 +25,10 @@ function Fishes({ fishItems }: FishesProps): JSX.Element {
 
   return (
     <>
-      <Seo title="主力商品" />
+      <Seo
+        description="金尾本店が取り扱う主力の鮮魚をご紹介します。アコウ・アナゴ・アワビなど、水槽で活かしたまま扱っている魚もあります。主力商品以外にも100種を超える魚を取り扱っております。"
+        title="主力商品"
+      />
       <MainProduct fishes={fishes} />
     </>
   );
