@@ -22,8 +22,8 @@ Family-run since 1958.
 ## 🚀 Development
 
 ```bash
-pnpm install
-pnpm dev
+npm install
+npm run dev
 ```
 
 ## 📄 License
