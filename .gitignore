@@ -40,4 +40,5 @@ robots.txt
 sitemap*.xml
 
 # contentful
-contentful.d.ts
+# 生成物は直下だけ。.github/stubs のスタブは追跡する
+/contentful.d.ts
