@@ -1,6 +1,7 @@
 import siteUrl from "libs/site";
 import store, { toInternationalPhone } from "libs/store";
 import Head from "next/head";
+import { JSX } from "react";
 
 // 水曜は休業日に入っているため、毎週の営業日としては書かない。
 // 祝日の休みも含め、日ごとの営業は holiday ページのカレンダーが正

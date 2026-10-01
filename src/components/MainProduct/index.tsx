@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { JSX } from "react";
 import styles from "./style.module.scss";
 
 type Fish = {
@@ -31,10 +32,10 @@ function MainProduct({ fishes }: MainProductProps): JSX.Element {
               <div className={styles.imageWrapper}>
                 <Image
                   alt={name}
-                  layout="fill"
-                  objectFit="cover"
+                  fill={true}
                   quality={100}
-                  src={thumbnail || "l_e_others_501.png"}
+                  src={thumbnail || "/l_e_others_501.png"}
+                  style={{ objectFit: "cover" }}
                 />
               </div>
               <div className={styles.textsWrapper}>

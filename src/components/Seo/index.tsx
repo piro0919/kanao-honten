@@ -1,7 +1,7 @@
 import siteUrl from "libs/site";
-import { NextSeo, NextSeoProps } from "next-seo";
 import { useRouter } from "next/router";
-import { useMemo } from "react";
+import { NextSeo, NextSeoProps } from "next-seo";
+import { JSX, useMemo } from "react";
 
 const SITE_URL = siteUrl;
 const SITE_NAME = "有限会社 金尾本店";

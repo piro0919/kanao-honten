@@ -6,6 +6,7 @@ import Document, {
   Main,
   NextScript,
 } from "next/document";
+import { JSX } from "react";
 
 // 本文と見出しの書体は文字が決まらないため text= で絞れず、CSS だけで1本 100KB を超える（圧縮前）。
 // 同期で読むと CSS が届くまで何も描けないので、media="print" で読ませて

@@ -23,23 +23,12 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  optimizeFonts: false,
   reactStrictMode: true,
+  // mq を使う SCSS は各ファイルの先頭で @use する。以前は additionalData の関数で
+  // 差し込んでいたが、Turbopack は関数を受け取れない
   sassOptions: {
-    additionalData: async (content, { resourcePath }) => {
-      if (resourcePath.includes("node_modules")) {
-        return content;
-      }
-
-      if (resourcePath.endsWith("mq-settings.scss")) {
-        return process.env.NODE_ENV === "production" ? "" : content;
-      }
-
-      return "@use 'styles/mq' as mq;" + content;
-    },
     includePaths: [path.join(__dirname, "src/styles")],
   },
-  swcMinify: true,
 };
 
 module.exports = nextConfig;

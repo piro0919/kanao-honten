@@ -6,7 +6,7 @@ import { Entry } from "contentful";
 import dayjs, { Dayjs } from "dayjs";
 import client from "libs/client";
 import { GetStaticProps } from "next";
-import { ReactElement, useMemo } from "react";
+import { JSX, ReactElement, useMemo } from "react";
 
 export type HolidayProps = {
   calendarItems: Entry<Contentful.ICalendarFields>[];

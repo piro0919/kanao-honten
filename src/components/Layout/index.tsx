@@ -2,7 +2,7 @@ import NoSSR from "@mpth/react-no-ssr";
 import Drawer from "components/Drawer";
 import Footer from "components/Footer";
 import noScroll from "no-scroll";
-import { ReactNode, useEffect } from "react";
+import { JSX, ReactNode, useEffect } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import { useBoolean, useWindowSize } from "usehooks-ts";
 import styles from "./style.module.scss";

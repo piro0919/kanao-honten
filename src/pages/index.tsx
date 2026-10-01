@@ -5,7 +5,7 @@ import Top, { TopProps } from "components/Top";
 import { Entry } from "contentful";
 import client from "libs/client";
 import { GetStaticProps } from "next";
-import { ReactElement, useMemo } from "react";
+import { JSX, ReactElement, useMemo } from "react";
 
 export type PagesProps = {
   topItems: Entry<Contentful.ITopFields>[];

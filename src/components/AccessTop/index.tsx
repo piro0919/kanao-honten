@@ -1,4 +1,5 @@
 import store, { storeAddressText, toInternationalPhone } from "libs/store";
+import { JSX } from "react";
 import styles from "./style.module.scss";
 
 function AccessTop(): JSX.Element {

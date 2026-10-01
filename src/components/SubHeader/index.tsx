@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { JSX } from "react";
 import { useWindowSize } from "usehooks-ts";
 import styles from "./style.module.scss";
 
@@ -14,11 +15,11 @@ function SubHeader({ heading }: SubHeaderProps): JSX.Element {
       <div className={styles.imageWrapper}>
         <Image
           alt="金尾商店"
-          layout="fill"
-          objectFit="cover"
+          fill={true}
           priority={true}
           quality={100}
           src="/10523987_524818304285571_903885718066498357_n.jpg"
+          style={{ objectFit: "cover" }}
         />
       </div>
       <div className={styles.titleWrapper}>

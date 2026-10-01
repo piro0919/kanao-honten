@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { useMemo } from "react";
-import { A11y, Pagination } from "swiper";
+import { JSX, useMemo } from "react";
+import { A11y, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import styles from "./style.module.scss";
 
@@ -21,10 +21,10 @@ function BusinessContent({ articles }: BusinessContentProps): JSX.Element {
         <article className={styles.article} key={title}>
           <Image
             alt={title}
-            layout="fill"
-            objectFit="cover"
+            fill={true}
             quality={100}
             src={background}
+            style={{ objectFit: "cover" }}
           />
           <div className={styles.inner}>
             <h2 className={styles.heading2}>{title}</h2>

@@ -4,7 +4,7 @@ import Seo from "components/Seo";
 import StoreJsonLd from "components/StoreJsonLd";
 import SubLayout from "components/SubLayout";
 import store, { storeAddressText } from "libs/store";
-import { ReactElement } from "react";
+import { JSX, ReactElement } from "react";
 
 function Access(): JSX.Element {
   return (

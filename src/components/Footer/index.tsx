@@ -1,5 +1,6 @@
 import { Separator } from "@radix-ui/react-separator";
 import store, { storeAddressText, toInternationalPhone } from "libs/store";
+import { JSX } from "react";
 import { AiOutlineFacebook, AiOutlineInstagram } from "react-icons/ai";
 import styles from "./style.module.scss";
 

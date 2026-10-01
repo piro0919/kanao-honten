@@ -1,7 +1,7 @@
 import useNavigations from "hooks/useNavigations";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { ComponentProps, useMemo } from "react";
+import { ComponentProps, JSX, useMemo } from "react";
 import ReactModernDrawer from "react-modern-drawer";
 import styles from "./style.module.scss";
 
@@ -17,13 +17,12 @@ function Drawer({ onClose, open }: DrawerProps): JSX.Element {
     () =>
       navigations.map(({ href, title }) => (
         <li key={href}>
-          <Link href={href}>
-            <a
-              className={pathname === href ? styles.active : ""}
-              onClick={onClose}
-            >
-              {title}
-            </a>
+          <Link
+            className={pathname === href ? styles.active : ""}
+            href={href}
+            onClick={onClose}
+          >
+            {title}
           </Link>
         </li>
       )),

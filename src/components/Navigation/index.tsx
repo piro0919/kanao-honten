@@ -2,7 +2,7 @@ import { Separator } from "@radix-ui/react-separator";
 import useNavigations from "hooks/useNavigations";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { Fragment, useMemo } from "react";
+import { Fragment, JSX, useMemo } from "react";
 import styles from "./style.module.scss";
 
 function Navigation(): JSX.Element {
@@ -19,8 +19,8 @@ function Navigation(): JSX.Element {
               orientation="vertical"
             />
           ) : null}
-          <Link href={href}>
-            <a className={pathname === href ? styles.active : ""}>{title}</a>
+          <Link className={pathname === href ? styles.active : ""} href={href}>
+            {title}
           </Link>
         </Fragment>
       )),

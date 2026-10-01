@@ -1,7 +1,7 @@
 import Navigation from "components/Navigation";
 import TopHeader from "components/TopHeader";
 import Image from "next/image";
-import { useMemo } from "react";
+import { JSX, useMemo } from "react";
 import styles from "./style.module.scss";
 
 type Article = {
@@ -22,10 +22,10 @@ function Top({ articles }: TopProps): JSX.Element {
           <div className={styles.imageWrapper}>
             <Image
               alt={title}
-              layout="fill"
-              objectFit="cover"
+              fill={true}
               quality={100}
               src={thumbnail}
+              style={{ objectFit: "cover" }}
             />
           </div>
           <div className={styles.textsWrapper}>

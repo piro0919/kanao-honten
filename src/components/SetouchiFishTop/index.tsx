@@ -1,6 +1,6 @@
 import dayjs from "dayjs";
 import Image from "next/image";
-import { useMemo } from "react";
+import { JSX, useMemo } from "react";
 import {
   VerticalTimeline,
   VerticalTimelineElement,
@@ -81,10 +81,10 @@ function SetouchiFishTop({ fishes }: SetouchiFishTopProps): JSX.Element {
                 <div className={styles.imageWrapper}>
                   <Image
                     alt={name}
-                    layout="fill"
-                    objectFit="cover"
+                    fill={true}
                     quality={100}
                     src={thumbnail}
+                    style={{ objectFit: "cover" }}
                   />
                 </div>
               ) : null}

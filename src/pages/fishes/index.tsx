@@ -5,7 +5,7 @@ import SubLayout from "components/SubLayout";
 import { Entry } from "contentful";
 import client from "libs/client";
 import { GetStaticProps } from "next";
-import { ReactElement, useMemo } from "react";
+import { JSX, ReactElement, useMemo } from "react";
 
 export type FishesProps = {
   fishItems: Entry<Contentful.IFishFields>[];

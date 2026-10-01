@@ -1,3 +1,5 @@
+@use "styles/mq" as mq;
+
 .wrapper {
   max-width: 1280px;
   padding-bottom: 120px;
@@ -52,6 +54,13 @@
 
 .tile {
   cursor: default !important;
+}
+
+// react-calendar 5 から日付の字が 0.833em に縮み、行の高さも 16px の指定が
+// 外れた。3.x のときの見た目に戻す
+.calendar .tile {
+  font-size: 1em;
+  line-height: 16px;
 }
 
 .holiday,

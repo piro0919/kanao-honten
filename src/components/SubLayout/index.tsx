@@ -1,6 +1,6 @@
 import Navigation from "components/Navigation";
 import SubHeader from "components/SubHeader";
-import { ReactNode } from "react";
+import { JSX, ReactNode } from "react";
 import styles from "./style.module.scss";
 
 export type SubLayoutProps = {

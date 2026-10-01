@@ -1,5 +1,5 @@
 import dayjs, { Dayjs } from "dayjs";
-import { useMemo } from "react";
+import { JSX, useMemo } from "react";
 import Calendar from "react-calendar";
 import styles from "./style.module.scss";
 
@@ -16,7 +16,7 @@ function HolidayTop({ holidays }: HolidayTopProps): JSX.Element {
           <li className={styles.item} key={index}>
             <div className={styles.monthWrapper}>{index + 1}</div>
             <Calendar
-              calendarType="US"
+              calendarType="gregory"
               className={styles.calendar}
               defaultActiveStartDate={dayjs().set("month", index).toDate()}
               formatDay={(_, date): string => `${dayjs(date).date()}`}
