@@ -20,7 +20,7 @@ export type SetouchiFishTopProps = {
 };
 
 function SetouchiFishTop({ fishes }: SetouchiFishTopProps): JSX.Element {
-  const { width } = useWindowSize();
+  const { width = 0 } = useWindowSize({ initializeWithValue: false });
   const currentMonth = useMemo(() => dayjs().get("month") + 1, []);
   const allMonth = useMemo(
     () =>

@@ -7,7 +7,7 @@ export type SubHeaderProps = {
 };
 
 function SubHeader({ heading }: SubHeaderProps): JSX.Element {
-  const { height } = useWindowSize();
+  const { height = 0 } = useWindowSize({ initializeWithValue: false });
 
   return (
     <header className={styles.header} style={{ height: height * 0.4 }}>

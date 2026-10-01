@@ -3,7 +3,7 @@ import { useWindowSize } from "usehooks-ts";
 import styles from "./style.module.scss";
 
 function TopHeader(): JSX.Element {
-  const { height } = useWindowSize();
+  const { height = 0 } = useWindowSize({ initializeWithValue: false });
 
   return (
     <header className={styles.header} style={{ height: height * 0.9 }}>

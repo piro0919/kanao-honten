@@ -12,7 +12,7 @@ export type LayoutProps = {
 };
 
 function Layout({ children }: LayoutProps): JSX.Element {
-  const { height } = useWindowSize();
+  const { height = 0 } = useWindowSize({ initializeWithValue: false });
   const {
     setFalse: offIsOpen,
     setTrue: onIsOpen,
