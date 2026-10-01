@@ -1,5 +1,6 @@
 import Layout from "components/Layout";
 import Seo from "components/Seo";
+import StoreJsonLd from "components/StoreJsonLd";
 import Top, { TopProps } from "components/Top";
 import { Entry } from "contentful";
 import client from "libs/client";
@@ -36,6 +37,7 @@ function Pages({ topItems }: PagesProps): JSX.Element {
   return (
     <>
       <Seo />
+      <StoreJsonLd />
       <Top articles={articles} />
     </>
   );

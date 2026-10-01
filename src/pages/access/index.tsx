@@ -1,16 +1,19 @@
 import AccessTop from "components/AccessTop";
 import Layout from "components/Layout";
 import Seo from "components/Seo";
+import StoreJsonLd from "components/StoreJsonLd";
 import SubLayout from "components/SubLayout";
+import store, { storeAddressText } from "libs/store";
 import { ReactElement } from "react";
 
 function Access(): JSX.Element {
   return (
     <>
       <Seo
-        description="有限会社 金尾本店へのアクセスです。広島県福山市南町20-16。営業時間は6:30〜16:00、水曜は6:30〜12:00、休業日は水曜・日曜・祝日です。"
+        description={`${store.name}へのアクセスです。${storeAddressText}。営業時間は${store.hours.weekday}、水曜は${store.hours.wednesday}、休業日は${store.closedDays}です。`}
         title="アクセス"
       />
+      <StoreJsonLd />
       <AccessTop />
     </>
   );

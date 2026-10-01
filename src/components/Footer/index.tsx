@@ -1,4 +1,5 @@
 import { Separator } from "@radix-ui/react-separator";
+import store, { storeAddressText, toInternationalPhone } from "libs/store";
 import { AiOutlineFacebook, AiOutlineInstagram } from "react-icons/ai";
 import styles from "./style.module.scss";
 
@@ -12,13 +13,13 @@ function Footer(): JSX.Element {
             <span>金尾本店</span>
           </div>
           <div className={styles.inner2}>
-            <span>〒720-0806</span>
-            <span>広島県福山市南町20-16</span>
+            <span>〒{store.address.postalCode}</span>
+            <span>{storeAddressText}</span>
           </div>
           <div className={styles.inner2}>
             <div className={styles.inner2}>
               <span>TEL</span>
-              <span>084-922-3886</span>
+              <a href={`tel:${toInternationalPhone(store.tel)}`}>{store.tel}</a>
             </div>
             <Separator
               className={styles.separator}
@@ -27,13 +28,13 @@ function Footer(): JSX.Element {
             />
             <div className={styles.inner2}>
               <span>FAX</span>
-              <span>084-921-7614</span>
+              <span>{store.fax}</span>
             </div>
           </div>
           <div className={styles.inner2}>
             <div className={styles.inner2}>
               <span>営業時間</span>
-              <span>6:30～16:00</span>
+              <span>{store.hours.weekday}</span>
             </div>
             <Separator
               className={styles.separator}
@@ -42,12 +43,12 @@ function Footer(): JSX.Element {
             />
             <div className={styles.inner2}>
               <span>水曜営業日</span>
-              <span>6:30～12:00</span>
+              <span>{store.hours.wednesday}</span>
             </div>
           </div>
           <div className={styles.inner2}>
             <span>休業日</span>
-            <span>水曜・日曜・祝日</span>
+            <span>{store.closedDays}</span>
           </div>
         </div>
         <div className={styles.inner2}>
