@@ -18,7 +18,7 @@ Family-run since 1958.
 - Next.js 16 (Pages Router) + React 19 + TypeScript
 - Contentful (CMS)
 - next-seo
-- next/font (fonts are self-hosted)
+- Fonts: Google Fonts loaded asynchronously, plus a self-hosted Yuji Syuku subset for the company name
 
 ## 🚀 Development
 

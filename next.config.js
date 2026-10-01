@@ -2,8 +2,8 @@ const path = require("path");
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // CSP は入れていない。Google マップの埋め込みと Contentful の画像を許す
-  // 一覧を保つ手間に対して、静的な会社サイトで得るものが少ない
+  // CSP は入れていない。Google マップの埋め込みと Contentful の画像、
+  // Google Fonts を許す一覧を保つ手間に対して、静的な会社サイトで得るものが少ない
   async headers() {
     return [
       {
