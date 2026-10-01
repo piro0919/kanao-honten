@@ -15,9 +15,10 @@ Family-run since 1958.
 
 ## 🛠 Tech Stack
 
-- Next.js + React + TypeScript
+- Next.js 16 (Pages Router) + React 19 + TypeScript
 - Contentful (CMS)
 - next-seo
+- next/font (fonts are self-hosted)
 
 ## 🚀 Development
 
@@ -26,7 +27,17 @@ npm install
 npm run dev
 ```
 
-The lockfile is `package-lock.json`, so use npm.
+The lockfile is `package-lock.json`, so use npm. Node.js 20.9 or later
+(Next.js 16); CI uses 22.
+
+| Command              | What it does                                      |
+| -------------------- | ------------------------------------------------- |
+| `npm run lint`       | ESLint (flat config) and Stylelint                |
+| `npm run type-check` | `next typegen` then `tsc --noEmit`                |
+| `npm run build`      | Generates `contentful.d.ts`, builds, then sitemap |
+
+Without the Contentful tokens, copy `.github/stubs/contentful.d.ts` to
+`contentful.d.ts` for lint and type-check, as CI does.
 
 ### Environment variables
 
