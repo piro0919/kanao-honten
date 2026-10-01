@@ -33,7 +33,7 @@
 
 .list {
   display: grid;
-  font-family: "Shippori Mincho", serif;
+  font-family: var(--font-shippori-mincho);
   gap: 4px 24px;
   grid-template: auto / auto auto;
   justify-content: flex-start;
