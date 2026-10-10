@@ -27,6 +27,7 @@
     "@commitlint/config-conventional": "17.8.1",
     "@eslint/js": "9.39.5",
     "@next/env": "16.3.8",
+    "@piro0919/eslint-config": "github:piro0919/eslint-config#v1.0.0",
     "@types/no-scroll": "2.1.2",
     "@types/node": "22.20.4",
     "@types/react": "19.3.0",
