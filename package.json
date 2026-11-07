@@ -2,11 +2,11 @@
   "dependencies": {
     "@mpth/react-no-ssr": "1.0.1",
     "@radix-ui/react-separator": "1.2.0",
-    "axios": "0.34.0",
+    "axios": "0.35.0",
     "contentful": "9.3.7",
     "contentful-management": "10.46.4",
     "dayjs": "1.11.23",
-    "next": "16.4.3",
+    "next": "16.4.5",
     "next-seo": "5.15.0",
     "no-scroll": "2.1.1",
     "react": "19.3.1",
@@ -17,9 +17,9 @@
     "react-modern-drawer": "1.4.0",
     "react-vertical-timeline-component": "3.6.0",
     "ress": "5.0.2",
-    "sass": "1.107.0",
+    "sass": "1.107.1",
     "sass-mq": "6.0.0",
-    "swiper": "14.3.0",
+    "swiper": "14.4.0",
     "usehooks-ts": "3.1.1"
   },
   "devDependencies": {
