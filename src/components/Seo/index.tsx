@@ -1,6 +1,7 @@
 import siteUrl from "libs/site";
+import Head from "next/head";
 import { useRouter } from "next/router";
-import { NextSeo, NextSeoProps } from "next-seo";
+import { generateNextSeo, NextSeoProps } from "next-seo/pages";
 import { JSX, useMemo } from "react";
 
 const SITE_URL = siteUrl;
@@ -22,7 +23,7 @@ function Seo({
       propTitle
         ? `${propTitle} - 有限会社 金尾本店`
         : "有限会社 金尾本店 - 広島県福山市の鮮魚卸",
-    [propTitle]
+    [propTitle],
   );
   const { asPath } = useRouter();
   const description = propDescription || DEFAULT_DESCRIPTION;
@@ -30,31 +31,33 @@ function Seo({
   const url = `${SITE_URL}${asPath === "/" ? "/" : asPath}`;
 
   return (
-    <NextSeo
-      canonical={url}
-      description={description}
-      openGraph={{
+    <Head>
+      {generateNextSeo({
         description,
         title,
-        url,
-        images: [
-          {
-            alt: title,
-            height: 630,
-            type: "image/png",
-            url: `${SITE_URL}/og-image-01.png`,
-            width: 1200,
-          },
-        ],
-        locale: "ja",
-        site_name: SITE_NAME,
-        type: asPath === "/" ? "website" : "article",
-      }}
-      title={title}
-      twitter={{
-        cardType: "summary_large_image",
-      }}
-    />
+        canonical: url,
+        openGraph: {
+          description,
+          title,
+          url,
+          images: [
+            {
+              alt: title,
+              height: 630,
+              type: "image/png",
+              url: `${SITE_URL}/og-image-01.png`,
+              width: 1200,
+            },
+          ],
+          locale: "ja",
+          site_name: SITE_NAME,
+          type: asPath === "/" ? "website" : "article",
+        },
+        twitter: {
+          cardType: "summary_large_image",
+        },
+      })}
+    </Head>
   );
 }
 

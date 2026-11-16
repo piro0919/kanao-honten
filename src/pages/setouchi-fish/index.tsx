@@ -7,11 +7,15 @@ import SetouchiFishTop, {
 import SubLayout from "components/SubLayout";
 import { Entry } from "contentful";
 import client from "libs/client";
+import type { Skeleton } from "libs/skeleton";
 import { GetStaticProps } from "next";
 import { JSX, ReactElement, useMemo } from "react";
 
 export type SetouchiFishProps = {
-  setouchiFishItems: Entry<Contentful.ISetouchiFishFields>[];
+  setouchiFishItems: Entry<
+    Skeleton<Contentful.ISetouchiFishFields>,
+    "WITHOUT_UNRESOLVABLE_LINKS"
+  >[];
 };
 
 function SetouchiFish({ setouchiFishItems }: SetouchiFishProps): JSX.Element {
@@ -48,15 +52,18 @@ function SetouchiFish({ setouchiFishItems }: SetouchiFishProps): JSX.Element {
               description,
               name,
               seasons: Array(
-                seasonEnd + (seasonStart > seasonEnd ? 12 : 0) - seasonStart + 1
+                seasonEnd +
+                  (seasonStart > seasonEnd ? 12 : 0) -
+                  seasonStart +
+                  1,
               )
                 .fill(undefined)
                 .map((_, index) => index + (seasonStart % 12) || 12),
-              thumbnail: thumbnail?.fields.file.url,
-            }))
+              thumbnail: thumbnail?.fields.file?.url,
+            })),
         )
         .flat(),
-    [setouchiFishItems]
+    [setouchiFishItems],
   );
 
   return (
@@ -82,7 +89,9 @@ SetouchiFish.getLayout = function getLayout(page: ReactElement): JSX.Element {
 
 export const getStaticProps: GetStaticProps<SetouchiFishProps> = async () => {
   const { items: setouchiFishItems } =
-    await client.getEntries<Contentful.ISetouchiFishFields>({
+    await client.withoutUnresolvableLinks.getEntries<
+      Skeleton<Contentful.ISetouchiFishFields>
+    >({
       content_type: "setouchiFish" as Contentful.CONTENT_TYPE,
     });
 
