@@ -4,11 +4,15 @@ import Seo from "components/Seo";
 import SubLayout from "components/SubLayout";
 import { Entry } from "contentful";
 import client from "libs/client";
+import type { Skeleton } from "libs/skeleton";
 import { GetStaticProps } from "next";
 import { JSX, ReactElement, useMemo } from "react";
 
 export type FishesProps = {
-  fishItems: Entry<Contentful.IFishFields>[];
+  fishItems: Entry<
+    Skeleton<Contentful.IFishFields>,
+    "WITHOUT_UNRESOLVABLE_LINKS"
+  >[];
 };
 
 function Fishes({ fishItems }: FishesProps): JSX.Element {
@@ -18,9 +22,9 @@ function Fishes({ fishItems }: FishesProps): JSX.Element {
         description,
         isLive,
         name,
-        thumbnail: thumbnail?.fields.file.url,
+        thumbnail: thumbnail?.fields.file?.url,
       })),
-    [fishItems]
+    [fishItems],
   );
 
   return (
@@ -43,9 +47,11 @@ Fishes.getLayout = function getLayout(page: ReactElement): JSX.Element {
 };
 
 export const getStaticProps: GetStaticProps<FishesProps> = async () => {
-  const { items: fishItems } = await client.getEntries<Contentful.IFishFields>({
+  const { items: fishItems } = await client.withoutUnresolvableLinks.getEntries<
+    Skeleton<Contentful.IFishFields>
+  >({
     content_type: "fish" as Contentful.CONTENT_TYPE,
-    order: "fields.name",
+    order: ["fields.name"],
   });
 
   return {

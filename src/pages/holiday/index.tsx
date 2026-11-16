@@ -5,11 +5,15 @@ import SubLayout from "components/SubLayout";
 import { Entry } from "contentful";
 import dayjs, { Dayjs } from "dayjs";
 import client from "libs/client";
+import type { Skeleton } from "libs/skeleton";
 import { GetStaticProps } from "next";
 import { JSX, ReactElement, useMemo } from "react";
 
 export type HolidayProps = {
-  calendarItems: Entry<Contentful.ICalendarFields>[];
+  calendarItems: Entry<
+    Skeleton<Contentful.ICalendarFields>,
+    "WITHOUT_UNRESOLVABLE_LINKS"
+  >[];
 };
 
 function Holiday({ calendarItems }: HolidayProps): JSX.Element {
@@ -45,10 +49,10 @@ function Holiday({ calendarItems }: HolidayProps): JSX.Element {
           !calendarItems
             .filter(({ fields: { isHoliday } }) => !isHoliday)
             .some(({ fields: { date: fieldDate } }) =>
-              date.isSame(fieldDate, "date")
-            )
+              date.isSame(fieldDate, "date"),
+            ),
       ),
-    [calendarItems, sundays, wednesdays]
+    [calendarItems, sundays, wednesdays],
   );
 
   return (
@@ -72,7 +76,9 @@ Holiday.getLayout = function getLayout(page: ReactElement): JSX.Element {
 
 export const getStaticProps: GetStaticProps<HolidayProps> = async () => {
   const { items: calendarItems } =
-    await client.getEntries<Contentful.ICalendarFields>({
+    await client.withoutUnresolvableLinks.getEntries<
+      Skeleton<Contentful.ICalendarFields>
+    >({
       content_type: "calendar" as Contentful.CONTENT_TYPE,
     });
 

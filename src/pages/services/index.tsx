@@ -6,11 +6,15 @@ import Seo from "components/Seo";
 import SubLayout from "components/SubLayout";
 import { Entry } from "contentful";
 import client from "libs/client";
+import type { Skeleton } from "libs/skeleton";
 import { GetStaticProps } from "next";
 import { JSX, ReactElement, useMemo } from "react";
 
 export type ServicesProps = {
-  serviceItems: Entry<Contentful.IServiceFields>[];
+  serviceItems: Entry<
+    Skeleton<Contentful.IServiceFields>,
+    "WITHOUT_UNRESOLVABLE_LINKS"
+  >[];
 };
 
 function Services({ serviceItems }: ServicesProps): JSX.Element {
@@ -19,11 +23,7 @@ function Services({ serviceItems }: ServicesProps): JSX.Element {
       serviceItems.map(
         ({
           fields: {
-            background: {
-              fields: {
-                file: { url },
-              },
-            },
+            background,
             description0,
             description1,
             description2,
@@ -33,7 +33,7 @@ function Services({ serviceItems }: ServicesProps): JSX.Element {
           },
         }) => ({
           title,
-          background: url,
+          background: background?.fields.file?.url ?? "",
           descriptions: [
             description0,
             description1,
@@ -41,9 +41,9 @@ function Services({ serviceItems }: ServicesProps): JSX.Element {
             description3,
             description4,
           ].filter((description) => description) as string[],
-        })
+        }),
       ),
-    [serviceItems]
+    [serviceItems],
   );
 
   return (
@@ -67,9 +67,11 @@ Services.getLayout = function getLayout(page: ReactElement): JSX.Element {
 
 export const getStaticProps: GetStaticProps<ServicesProps> = async () => {
   const { items: serviceItems } =
-    await client.getEntries<Contentful.IServiceFields>({
+    await client.withoutUnresolvableLinks.getEntries<
+      Skeleton<Contentful.IServiceFields>
+    >({
       content_type: "service" as Contentful.CONTENT_TYPE,
-      order: "fields.order",
+      order: ["fields.order"],
     });
 
   return {

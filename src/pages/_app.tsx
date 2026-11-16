@@ -3,7 +3,8 @@ import "dayjs/locale/ja";
 import { NextPage } from "next";
 import type { AppProps } from "next/app";
 import localFont from "next/font/local";
-import { DefaultSeo } from "next-seo";
+import Head from "next/head";
+import { generateDefaultSeo } from "next-seo/pages";
 import { JSX, ReactElement, ReactNode } from "react";
 import "react-calendar/dist/Calendar.css";
 import "react-modern-drawer/dist/index.css";
@@ -59,7 +60,7 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout): JSX.Element {
           --font-yuji-syuku: ${yujiSyuku.style.fontFamily};
         }
       `}</style>
-      <DefaultSeo />
+      <Head>{generateDefaultSeo({})}</Head>
       {getLayout(<Component {...pageProps} />)}
     </>
   );
