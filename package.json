@@ -77,5 +77,10 @@
     "start": "next start",
     "type-check": "next typegen && tsc --noEmit"
   },
-  "version": "0.1.0"
+  "version": "0.1.0",
+  "overrides": {
+    "stylelint-config-css-modules": {
+      "stylelint-scss": "$stylelint-scss"
+    }
+  }
 }
